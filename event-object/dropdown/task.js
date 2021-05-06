@@ -8,7 +8,7 @@
     function listenShowList() {
         drop.addEventListener("click", (event) => {
             if (event.target.className == "dropdown__value") {
-                showList();
+                toggleList();
             }
         });
     }
@@ -17,18 +17,14 @@
         itemLinks.forEach(element => {
             element.addEventListener("click", function(e) {
                 activeItem.textContent = this.textContent;
-                hideList();
+                toggleList();
                 e.preventDefault();
             })
         });
     }
 
-    function hideList() {
-        dropList.className = "dropdown__list";
-    }
-
-    function showList() {
-        dropList.className = "dropdown__list dropdown__list_active";
+    function toggleList() {
+        dropList.classList.toggle("dropdown__list_active")
     }
 
     listenShowList();

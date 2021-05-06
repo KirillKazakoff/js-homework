@@ -1,17 +1,19 @@
 "use strict";
 function game() {
-    let destination, htmlLetters = null;
+    let destination, htmlLetters, successes, loss = null;
     const successesHtml = document.querySelector(".status__wins");
     const lossHtml = document.querySelector(".status__loss");
 
+
+
     //Html rendering and words sending
     function intialRender() {
-        getWordFromClient();
+        htmlReceive();
         clearHtml();
         renderWord();
     }
 
-    function getWordFromClient() {
+    function htmlReceive() {
         destination = document.querySelector(".word");
         htmlLetters = Array.from(destination.children);
     }
@@ -47,62 +49,22 @@ function game() {
             destination.appendChild(newSymbol);
     
         }
-        getWordFromClient();
+        htmlReceive();
     }
 
     function clearHtml() {
-        getWordFromClient();
+        htmlReceive();
         htmlLetters.forEach(element => element.remove());
     }
 
-    // keyboardEvent
-    function onKeyboardEvent() {
-        let successes = checkRight();
-        let loss = checkWrong();
+    
 
-        document.addEventListener('keypress', (event) => {
-            if (checkTyping(event)) {
-                checkGameWin(successes);
-            }
-            else {
-                checkGameLose(loss);
-                successes = checkRight();
-            }
-        })    
-        
-        function checkGameWin(func) {
-            let winNumber = func();
-            if (winNumber == 10) {
-                alert("You won!");
-                restartGame();
-            }
-        }
-
-        function checkGameLose(func) {
-            let lossNumber = func();
-            if (lossNumber == 3) {
-                alert("You lose");
-                restartGame();
-            }
-        }
-
-        function restartGame()  {
-            successesHtml.textContent = 0;
-            lossHtml.textContent = 0;
-            successes = checkRight();
-            loss = checkWrong();
-        }
+    // Loss and wins logic
+    function startGame() {
+        successes = checkRight();
+        loss = checkWrong();
     }
-
-    function checkTyping(event) {
-        if (htmlLetters[0].textContent == event.key) {
-            htmlLetters[0].classList.add('symbol_correct');
-            htmlLetters.splice(0, 1);
-            return true;
-        }
-        else return false;
-    }
-
+    
     function checkRight() {
         let length = htmlLetters.length;
         let succededLetters = 0;
@@ -134,13 +96,13 @@ function game() {
         return function() {
             lossNumber++;
             lossHtml.textContent = lossNumber;
-            onWrongWord();
+            turnRed();
             setTimeout(restart, 500);
             return lossNumber;
         }
 
-        function onWrongWord() {
-            getWordFromClient();
+        function turnRed() {
+            htmlReceive();
             htmlLetters.forEach(letter => 
                 letter.className = "symbol");
             destination.classList.add("word_incorrect");
@@ -151,7 +113,54 @@ function game() {
         }
     }
 
+
+
+    // keyboardEvent
+    function onKeyboardEvent() {
+        document.addEventListener('keypress', (event) => {
+            if (checkTyping(event)) {
+                checkGameWin(successes);
+            }
+            else {
+                checkGameLose(loss);
+                successes = checkRight();
+            }
+        })        
+    }
+
+    function checkGameWin(func) {
+        let winNumber = func();
+        if (winNumber == 10) {
+            alert("You won!");
+            restartGame();
+        }
+    }
+
+    function checkGameLose(func) {
+        let lossNumber = func();
+        if (lossNumber >= 3) {
+            alert("You lose");
+            restartGame();
+        }
+    }
+
+    function restartGame()  {
+        successesHtml.textContent = 0;
+        lossHtml.textContent = 0;
+        startGame();
+    }
+
+    function checkTyping(event) {
+        if (htmlLetters[0].textContent == event.key) {
+            htmlLetters[0].classList.add('symbol_correct');
+            htmlLetters.splice(0, 1);
+            return true;
+        }
+        else return false;
+    }
+
     intialRender();
+    startGame();
     onKeyboardEvent();
 }
 
