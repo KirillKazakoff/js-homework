@@ -14,12 +14,27 @@ body {
   background: white;
 }
 
-.book_fs-big {
-  font-size: 20px;
+
+.text_color_black {
+  background: #000;
 }
+
+.text_color_gray {
+  background: grey;
+}
+
+.text_color_whitesmoke {
+  background: whitesmoke;
+}
+
+
 
 .book_fs-small {
   font-size: 12px;
+}
+
+.book_fs-big {
+  font-size: 20px;
 }
 
 .book_color-black {
@@ -45,6 +60,7 @@ body {
 .book_bg-white {
   background: white;
 }
+
 
 .book__controls {
   background: rgb(63, 63, 63);
@@ -77,6 +93,7 @@ body {
   border: 1px solid gray;
 }
 
+
 .font-size {
   text-align: center;
   text-decoration: none;
@@ -102,6 +119,7 @@ body {
   font-size: 20px;
 }
 
+
 .font-size_active {
   border: 1px solid whitesmoke;
   border-radius: 50%;
@@ -120,14 +138,5 @@ body {
   font-size: 28px;
 }
 
-.text_color_black {
-  background: #000;
-}
 
-.text_color_gray {
-  background: grey;
-}
 
-.text_color_whitesmoke {
-  background: whitesmoke;
-}
