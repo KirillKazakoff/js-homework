@@ -17,16 +17,15 @@ class Game {
   }
 
   registerEvents() {
-    
+    this.currentSymbol = Array.from(this.wordElement.children)[0]
+    document.addEventListener("keydown", (event) => checkSuccess.bind(this)(event))
 
-
-    /*
-      TODO:
-      Написать обработчик события, который откликается
-      на каждый введённый символ.
-      В случае правильного ввода слова вызываем this.success()
-      При неправильном вводе символа - this.fail();
-     */
+    function checkSuccess(event) {
+      if (event.key == this.currentSymbol.textContent) {
+        this.success();
+      }
+      else this.fail();
+    }
   }
 
   success() {

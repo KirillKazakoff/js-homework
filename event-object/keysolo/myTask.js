@@ -97,7 +97,7 @@ function game() {
             lossNumber++;
             lossHtml.textContent = lossNumber;
             turnRed();
-            setTimeout(restart, 500);
+            setTimeout(restart, 2000);
             return lossNumber;
         }
 
@@ -138,7 +138,7 @@ function game() {
 
     function checkGameLose(func) {
         let lossNumber = func();
-        if (lossNumber >= 3) {
+        if (lossNumber >= 30) {
             alert("You lose");
             restartGame();
         }
