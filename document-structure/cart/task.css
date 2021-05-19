@@ -1,6 +1,16 @@
 body {
   font-family: Arial;
 }
+
+.cart {
+  display: none;
+}
+
+.cart__active {
+  min-height: 150px;
+  display: block;
+}
+
 .cart__products {
   display: flex;
   justify-content: center;
@@ -10,6 +20,11 @@ body {
 .cart__product {
   position: relative;
 }
+
+.cart__product:nth-child(n+2) {
+  margin-left: 15px;
+}
+
 .cart__product-count {
   position: absolute;
   top: 0;
@@ -21,11 +36,31 @@ body {
 
 .cart__product-image {
   border-radius: 6px;
-  margin-right: 10px;
+  display: block;
+  opacity: 0;
+  margin-left: auto;
+  margin-right: auto;
   width: 100px;
   height: 100px;
   object-fit: contain;
 }
+
+.image__active {
+  display: block;
+  opacity: 1;
+} 
+
+.cart__product-delete {
+  background-color: red;
+  padding: 5px;
+  color: #fff;
+
+  border: 2px solid rgb(248, 132, 0);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
 .product {
   display: flex;
   flex-wrap: wrap;

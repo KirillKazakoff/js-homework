@@ -1,11 +1,11 @@
 "use strict";
 const linksArr = Array.from(document.getElementsByClassName("menu__link"));
 let activeTab = null;
-let activeMenu = null;
 
 function setTabListener() {
     linksArr.forEach(element => {
         const sibling = element.nextElementSibling;
+
         if (sibling) {
             element.onclick = function() {
                 sibling.classList.add("menu_active");
