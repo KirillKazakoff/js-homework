@@ -1,6 +1,11 @@
 body {
   font-family: Arial;
 }
+
+.type {
+  font-size: 25px;
+}
+
 .item {
   display: flex;
 }
@@ -18,5 +23,15 @@ body {
   display: none;
 }
 .loader_active {
+  display: block;
+}
+
+.main {
+  display: flex;
+  align-items: flex-start;
+  
+}
+
+img {
   display: block;
 }

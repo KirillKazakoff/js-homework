@@ -1,6 +1,7 @@
 .has-tooltip {
   color: #000;
   background: yellow;
+  /* position: relative; */
 }
 
 .has-tooltip:hover {
@@ -8,7 +9,7 @@
 }
 
 .tooltip {
-  position: fixed;
+  position: absolute;
   display: none;
   background: black;
   padding: 5px;

@@ -1,3 +1,36 @@
 body {
   font-family: Arial;
 }
+
+.poll__answers {
+  display: none;
+}
+
+.poll__answers_active {
+  display: block;
+}
+
+.poll__title {
+  display: none;
+}
+
+.poll__title_active {
+  display: block;
+}
+
+
+.poll__result {
+  display: flex;
+  width: 250px;
+}
+
+.poll__result-title {
+  padding-right: 2%;
+  width: 55%;
+}
+
+.poll__result-votes {
+  width: 43%;
+  margin-left: auto;
+  font-weight: bold;
+}

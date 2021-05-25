@@ -9,23 +9,29 @@
     <link rel="stylesheet" href="task.css">
 </head>
 <body>
-    <h1>Курс валют</h1>
+    <h1>Курс валют <span class="type">(старый)</span></h1>
+    
 
-    <div id="items">
-        <div class="item">
-            <!--<div class="item__code">
-                USD
+    <section class="main">
+        <div id="items" class="items">
+            <div class="item">
+                <!--<div class="item__code">
+                    USD
+                </div>
+                <div class="item__value">
+                    32
+                </div>
+                <div class="item__currency">
+                    руб.
+                </div>-->
             </div>
-            <div class="item__value">
-                32
-            </div>
-            <div class="item__currency">
-                руб.
-            </div>-->
         </div>
-    </div>
+        <img id="loader" class="loader loader_active" src="https://i.postimg.cc/66SGMVs5/mcru-ajax-loader.gif">
+    </section>
 
-    <img id="loader" class="loader loader_active" src="https://i.postimg.cc/66SGMVs5/mcru-ajax-loader.gif">
+    
+
+    
     <script src="task.js"></script>
 </body>
 </html>
