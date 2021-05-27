@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="task.css">
 </head>
 <body>
-    <div class="signin" id="signin">
+    <div class="signin signin_active" id="signin">
         <h2 class="title">Вход</h2>
         <form action="https://netology-slow-rest.herokuapp.com/auth.php" id="signin__form">
             <div class="row">
@@ -24,7 +24,10 @@
         </form>
     </div>
     <div class="welcome" id="welcome">
-        Добро пожаловать, пользователь #<span id="user_id"></span>
+        <div class="welcome__text" id="welcome__text">
+            Добро пожаловать, пользователь #<span id="user_id"></span>
+        </div>
+        <button class="welcome__signout" id="welcome__signout">Деавторизация</button>
     </div>
     <script src="task.js"></script>
 </body>
